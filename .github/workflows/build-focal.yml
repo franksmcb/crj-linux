@@ -16,7 +16,7 @@ jobs:
 
       - name: CRJ
         run: |
-          ./crj.sh
+          bash crj.sh
       - name: Build
         run: |
           cd scripts
