@@ -23,7 +23,8 @@ jobs:
           ./build.sh -
       - name: Compress
         run: |
-          gzip scripts/$ISOFILENAME.iso
+        source crj.config  
+        gzip scripts/$ISOFILENAME.iso
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
@@ -32,4 +33,4 @@ jobs:
           tag_name: focal-latest
           prerelease: true
           files: |
-            scripts/$ISOFILENAME.iso.gz
+            scripts/*.iso.gz
