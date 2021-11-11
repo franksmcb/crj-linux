@@ -14,14 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: CRJ
+        run: |
+          source crj.config
+          ./crj.sh
       - name: Build
         run: |
           cd scripts
-          sed -i -E 's/TARGET_UBUNTU_VERSION=(.*)/TARGET_UBUNTU_VERSION="focal"/g' default_config.sh
           ./build.sh -
       - name: Compress
         run: |
-          gzip scripts/ubuntu-from-scratch.iso
+          gzip scripts/$ISOFILENAME.iso
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
@@ -30,4 +33,4 @@ jobs:
           tag_name: focal-latest
           prerelease: true
           files: |
-            scripts/ubuntu-from-scratch.iso.gz
+            scripts/$ISOFILENAME.iso.gz
