@@ -16,8 +16,8 @@ jobs:
 
       - name: CRJ
         run: |
-          source crj.config
-          ./crj.sh
+          source crj-template.sh
+          ./crj-apply.sh
       - name: Build
         run: |
           cd scripts

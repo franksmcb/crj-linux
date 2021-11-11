@@ -14,7 +14,7 @@ The difference between this from upstream is that it runs /crj.sh before calling
 
 Downstream additions:
 
-/crj.sh builds a custom /scripts/config.sh from /scripts/default_config.sh
+/crj-apply.sh builds a custom /scripts/config.sh from /scripts/default_config.sh applying settings in crj-template.sh
 
 Steps:
 
